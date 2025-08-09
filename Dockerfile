@@ -64,11 +64,11 @@ RUN apt update && apt upgrade -y && \
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
-RUN git clone https://github.com/Noob-Mukesh/MukeshRobot /root/MukeshRobot
-WORKDIR /root/MukeshRobot
+RUN git clone https://github.com/Noob-Mukesh/zefron /root/zefron
+WORKDIR /root/zefron
 
-#Copy config file to /root/MukeshRobot/MukeshRobot
-COPY ./MukeshRobot/config.py ./MukeshRobot/config.py* /root/MukeshRobot/MukeshRobot/
+#Copy config file to /root/zefron/zefron
+COPY ./zefron/config.py ./zefron/config.py* /root/zefron/zefron/
 
 ENV PATH="/home/bot/bin:$PATH"
 
@@ -76,4 +76,4 @@ ENV PATH="/home/bot/bin:$PATH"
 RUN pip3 install -U -r requirements.txt
 
 # Starting Worker
-CMD ["python3","-m","MukeshRobot"]
+CMD ["python3","-m","zefron"]
